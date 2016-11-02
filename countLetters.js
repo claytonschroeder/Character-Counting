@@ -1,20 +1,23 @@
+'use strict';
+
 function countLetters(input) {
 
-// var noSpaces = input.split(" ").join("");
+var str = input.replace(/ /, "") // replace spaces with no spaces
 
-var string = input.replace(/ /, "")
+var obj = {}; // create empty storage for keys/values
 
-var object = {};
+  for(var i = 0; i < str.length; i++) {
+    var letter = str[i];
 
-for(var i = 0; i <= string.length - 1; i++) {
+    debugger;
+    if(obj[letter] !== undefined)
+      obj[letter] += 1 // add one to object key value if a key already exists
+    else
+      obj[letter] = 1 // create new object key with value 0
+  }
 
-  object[string[i]] = 0;
-
-}
-for(var i =0; i< string.length; i++) {
-  object[string[i]] += 1
-}
-return object;
+return obj;
 };
 
-console.log(countLetters("Lighthouse Labs"));
+console.log(countLetters("Lighthouse"));
+
